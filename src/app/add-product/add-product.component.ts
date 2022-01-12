@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-add-product',
@@ -7,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProductComponent implements OnInit {
 
-  constructor() { }
+  getProductFormData(data:any) {
+    this.http.post<any>("https://127.0.0.1:8000/product/add", data).subscribe((res)=>{
+      console.log(res);
+      
+    })
+    console.log(data);
+    
+  }
+  constructor(private http:HttpClient) {
+    
+  }
 
   ngOnInit(): void {
   }
