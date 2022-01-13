@@ -5,8 +5,8 @@
 </nav>
 <div class="container bg-light my-4" style="height: 500px;padding: 12px;">
     <div class="sidenav">
-        <a href="#">สินค้า</a>
-        <a href="/category_manage">หมวดหมู่</a>
+        <a href="/product">สินค้า</a>
+        <a href="/category">หมวดหมู่</a>
     </div>
 
     <div class="container">
@@ -34,6 +34,7 @@
                 <label>หมวดหมู่ :</label><br>
                 <input type="text" class="form-control" ngModel name="catagory_id">
                 <br>
+                <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <button type="submit" class="btn btn-success" style="text-align:center;">บันทึก</button>
             </div>
         </form>

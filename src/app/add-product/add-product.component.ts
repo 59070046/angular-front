@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { ApiServiceService } from '../api-service.service';
 
 
 @Component({
@@ -9,15 +9,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AddProductComponent implements OnInit {
 
-  getProductFormData(data:any) {
-    this.http.post<any>("https://127.0.0.1:8000/product/add", data).subscribe((res)=>{
-      console.log(res);
-      
+  getProductFormData(dataAdd:any) {      
+    console.log(dataAdd);
+    this.apiServiceService.addProduct(dataAdd).subscribe((res) => {
+      console.log(res);        
     })
-    console.log(data);
-    
   }
-  constructor(private http:HttpClient) {
+
+  constructor(private apiServiceService:ApiServiceService) {
     
   }
 

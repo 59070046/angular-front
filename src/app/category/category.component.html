@@ -5,8 +5,8 @@
 </nav>
 <div class="container bg-light my-4" style="height: 500px;padding: 12px;">
     <div class="sidenav">
-        <a>สินค้า</a>
-        <a href="/category">หมวดหมู่</a>
+        <a href="/product">สินค้า</a>
+        <a>หมวดหมู่</a>
     </div>
 
     <div class="table-top">
@@ -14,19 +14,15 @@
         <table class="table-products">
             <tr>
                 <th>#</th>
-                <th>รูป</th>
-                <th>ชื่อสินค้า</th>
-                <th>ราคา</th>
+                <th>ชื่อ</th>
                 <th>แก้ไข</th>
                 <th>ลบ</th>
             </tr>
-            <tr *ngFor="let product of productList">
-                <th>{{ product.product_id }}</th>
-                <th></th>
-                <th>{{ product.product_name }}</th>
-                <th>{{ product.product_price }}</th>
-                <th><a class="btn btn-primary" (click)="editProduct()">ลบ</a></th>
-                <th><a class="btn btn-danger" (click)="deleteProduct(product.product_id)">ลบ</a></th>
+            <tr *ngFor="let category of categoryList; let i = index">
+                <th>{{ category.catagory_id }}</th>
+                <th>{{ category.catagory_name }}</th>
+                <th><a class="btn btn-primary" (click)="editCategory()">ลบ</a></th>
+                <th><a class="btn btn-danger" (click)="deleteCategory()">ลบ</a></th>
             </tr>
         </table>
     </div>

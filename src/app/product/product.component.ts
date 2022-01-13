@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ApiServiceService } from '../api-service.service';
 
 @Component({
@@ -9,17 +8,27 @@ import { ApiServiceService } from '../api-service.service';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private apiServiceService:ApiServiceService) { }
-  productlist: any;
-
-  showProduct() {
+  productList: any;
+  constructor(
+    private apiServiceService:ApiServiceService,
+    ) { }
+  editProduct() {
+    console.log('edit');
     
+  }
+  deleteProduct(id: number) {
+    console.log(id);
+    this.apiServiceService.deleteProduct(id, 'delete').subscribe(res => {
+      console.log(res);
+      
+    })
   }
 
   ngOnInit(): void {
     this.apiServiceService.getProduct().subscribe(data => {
-      this.productlist = data;
-      console.log(this.productlist);     
+      this.productList = data;
+      this.productList = this.productList.data
+      console.log(this.productList);     
     })
   }
 
